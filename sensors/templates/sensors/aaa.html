@@ -1,0 +1,294 @@
+<html>
+
+<style>
+#menu {
+  position: fixed;
+  right: 10;
+  top: 0%;
+  width: 68.5em;
+  
+}
+a:link    {color:white; background-color:transparent; text-decoration:none}
+a:hover   {color: red ; background-color: #f3653c ; text-decoration:none}
+
+
+
+#div1 
+{
+background-image:url('https://thumbs.dreamstime.com/b/fundo-da-madeira-e-da-natureza-das-folhas-27144327.jpg');
+background-attachment:fixed;
+background-size:cover;
+font-size:20px;
+}
+
+#div2 
+{
+background-image:url('http://pic.68ps.com/down/UploadFile/20120718/sc120718_1a.jpg');
+background-attachment:fixed;
+background-size:cover;
+font-size:20px;
+}
+#div3 
+{
+background-image:url('http://www.jameswong.co.uk/communities/3/004/008/584/263//images/4618073978.jpg');
+background-attachment:fixed;
+background-size:cover;
+font-size:20px;
+}
+
+#div4 
+{
+background-image:url('rashtrapathi.jpg');
+background-attachment:fixed;
+background-size:cover;
+font-size:20px;
+}
+
+#chartdivHum {
+  width: 100%;
+  height: 500px;
+}
+
+#chartdivWater {
+	width		: 100%;
+	height		: 500px;
+	font-size	: 20px;
+}															
+
+#chartdiv {
+	width		: 100%;
+	height		: 500px;
+	font-size	: 20px;
+}						
+</style>
+
+<!-- Resources -->
+<script src="https://www.amcharts.com/lib/3/amcharts.js"></script>
+<script src="https://www.amcharts.com/lib/3/serial.js"></script>
+<script src="https://www.amcharts.com/lib/3/plugins/export/export.min.js"></script>
+<link rel="stylesheet" href="https://www.amcharts.com/lib/3/plugins/export/export.css" type="text/css" media="all" />
+<script src="https://www.amcharts.com/lib/3/themes/light.js"></script>
+
+<script>
+var chart = AmCharts.makeChart("chartdiv", {
+	"type": "serial",
+     "theme": "light",
+	"categoryField": "year",
+	"rotate": true,
+	"startDuration": 1,
+	"categoryAxis": {
+		"gridPosition": "start",
+		"position": "left"
+	},
+	"trendLines": [],
+	"graphs": [
+		{
+			"balloonText": "Income:[[value]]",
+			"fillAlphas": 0.8,
+			"id": "AmGraph-1",
+			"lineAlpha": 0.2,
+			"title": "Income",
+			"type": "column",
+			"valueField": "income"
+		},
+		{
+			"balloonText": "Expenses:[[value]]",
+			"fillAlphas": 0.8,
+			"id": "AmGraph-2",
+			"lineAlpha": 0.2,
+			"title": "Expenses",
+			"type": "column",
+			"valueField": "expenses"
+		}
+	],
+	"guides": [],
+	"valueAxes": [
+		{
+			"id": "ValueAxis-1",
+			"position": "top",
+			"axisAlpha": 0
+		}
+	],
+	"allLabels": [],
+	"balloon": {},
+	"titles": [],
+	"dataProvider": [
+		{
+			"year": "Temperature",
+			"income": 25.5,
+			"expenses": 18.1
+		}
+	],
+    "export": {
+    	"enabled": true
+     }
+
+});
+</script>
+
+
+
+
+
+<!-- Chart code -->
+<script>
+var chartData = [ {
+  "category": "Water Level",
+  "value1": 30,
+  "value2": 70
+} ];
+
+
+var chart = AmCharts.makeChart( "chartdivWater", {
+  "theme": "light",
+  "type": "serial",
+  "depth3D": 100,
+  "angle": 30,
+  "autoMargins": false,
+  "marginBottom": 100,
+  "marginLeft": 350,
+  "marginRight": 300,
+  "dataProvider": chartData,
+  "valueAxes": [ {
+    "stackType": "100%",
+    "gridAlpha": 0
+  } ],
+  "graphs": [ {
+    "type": "column",
+    "topRadius": 1,
+    "columnWidth": 1,
+    "showOnAxis": true,
+    "lineThickness": 2,
+    "lineAlpha": 0.5,
+    "lineColor": "#FFFFFF",
+    "fillColors": "#8d003b",
+    "fillAlphas": 0.8,
+    "valueField": "value1"
+  }, {
+    "type": "column",
+    "topRadius": 1,
+    "columnWidth": 1,
+    "showOnAxis": true,
+    "lineThickness": 2,
+    "lineAlpha": 0.5,
+    "lineColor": "#cdcdcd",
+    "fillColors": "#cdcdcd",
+    "fillAlphas": 0.5,
+    "valueField": "value2"
+  } ],
+
+  "categoryField": "category",
+  "categoryAxis": {
+    "axisAlpha": 0,
+    "labelOffset": 40,
+    "gridAlpha": 0
+  },
+  "export": {
+    "enabled": true
+  }
+} );
+</script>
+
+<!-- HTML -->
+
+<!-- Resources -->
+<script src="https://www.amcharts.com/lib/3/amcharts.js"></script>
+<script src="https://www.amcharts.com/lib/3/gauge.js"></script>
+<script src="https://www.amcharts.com/lib/3/plugins/export/export.min.js"></script>
+<link rel="stylesheet" href="https://www.amcharts.com/lib/3/plugins/export/export.css" type="text/css" media="all" />
+<script src="https://www.amcharts.com/lib/3/themes/light.js"></script>
+
+<!-- Chart code -->
+<script>
+var chart = AmCharts.makeChart("chartdivHum", {
+  "theme": "light",
+  "type": "gauge",
+  "axes": [{
+    "topTextFontSize": 20,
+    "topTextYOffset": 70,
+    "axisColor": "#31d6ea",
+    "axisThickness": 1,
+    "endValue": 100,
+    "gridInside": true,
+    "inside": true,
+    "radius": "50%",
+    "valueInterval": 10,
+    "tickColor": "#67b7dc",
+    "startAngle": -90,
+    "endAngle": 90,
+    "unit": "%",
+    "bandOutlineAlpha": 0,
+    "bands": [{
+      "color": "#0080ff",
+      "endValue": 100,
+      "innerRadius": "105%",
+      "radius": "170%",
+      "gradientRatio": [0.5, 0, -0.5],
+      "startValue": 0
+    }, {
+      "color": "#3cd3a3",
+      "endValue": 0,
+      "innerRadius": "105%",
+      "radius": "170%",
+      "gradientRatio": [0.5, 0, -0.5],
+      "startValue": 0
+    }]
+  }],
+  "arrows": [{
+    "alpha": 1,
+    "innerRadius": "35%",
+    "nailRadius": 0,
+    "radius": "170%"
+  }]
+});
+
+setInterval(randomValue, 2000);
+
+// set random value
+function randomValue() {
+ //var value = Math.round(Math.random() * 100);
+  //var value = 60;
+var value ={{all_sensors.humidity}};
+
+  chart.arrows[0].setValue(value);
+  chart.axes[0].setTopText(value + " %");
+  // adjust darker band to new value
+  chart.axes[0].bands[1].setEndValue(value);
+}
+</script>
+
+
+
+<h2 id="menu" style="color:white;background-color:black">
+ <a href="#div2"><span style="color:white">WEATHER&emsp; </span></a><a href="#history"><span style="color:white">&emsp;WATER_LEVEL&emsp;</span></a><a href="#div3"><span style="color:white">&emsp;PLANT DETAILS&emsp;</span> <a>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<a href="#div1"><span style="color:white">&emsp;HOME&emsp;</span></a>
+ 
+</h2>
+
+<div id="div1"><center><span style="font-size:90px; color:white;"><br><br><br><br>Water Management System<br>Group-3<br><br><br><br><br></div>
+
+
+<div id="div2"><center><span style="font-size:60px"><br>WEATHER</span></center>
+<table>
+<tr >
+<td>
+<center><h2>TEMPERATURE:{{all_sensors.temperature}} &#8451   </h2></center>
+
+<center><h2>HUMIDITY:{{all_sensors.humidity}} &#8451   </h2></center>
+<div id="chartdiv" style="float: left; width: 60%; margin-left:33%; height: 250px;"  align="left"></div>
+</td>
+</table></div></tr>
+
+
+
+<div id="div3"><br><br id="pd"><center><span style="font-size:60px;">PLANT DETAILS</span></center><center><table><tr><td><br><br><h2>PLANT1</h2><img src="http://www.lifedeltacounseling.com/phpThumb/phpThumb.php?src=/common/images/iStock_000003181669Medium.jpg&w=200&h=200"></td><td><br><br><br><br><h2>Soil moisture:{{all_sensors.ps1}}</h2><h2>Actuator State:{{all_senssors.as1}}</h2></td></tr><tr><td><h2>PLANT2</h2><img src="http://www.lifedeltacounseling.com/phpThumb/phpThumb.php?src=/common/images/iStock_000003181669Medium.jpg&w=200&h=200"></td><td><br><br><br><br><h2>Soil moisture:{{all_sensors.ps2}}</h2><h2>Actuator State:{{all_sensors.as2}}</h2></td></tr><tr><td><h2>PLANT3</h2><img src="http://www.lifedeltacounseling.com/phpThumb/phpThumb.php?src=/common/images/iStock_000003181669Medium.jpg&w=200&h=200"></td><td><br><br><br><br><h2>Soil moisture:34.5</h2><h2>Actuator State:on/off</h2></td></tr></table></center></div>
+
+
+
+</html>
+
+
+
+
+
+
+
