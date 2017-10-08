@@ -7,13 +7,11 @@ from django.db import models
 
 
 class Sensors(models.Model):
-	temperature = models.FloatField(default=0)
-	humidity = models.FloatField(default=0)
-	ps1=models.FloatField(default=0)
-	as1=models.CharField(max_length=10)
-	ps2=models.FloatField(default=0)
-	as2=models.CharField(max_length=10)
-	wl=models.FloatField(default=0)
+	ps = models.FloatField(default=0)
+	ss = models.FloatField(default=0)
+	dw=models.FloatField(default=0)
+	spw=models.FloatField(default=0)
+	tpw=models.FloatField(default=0)
 	def __str__(self):
 		return str(self.temperature) +' '+ str(self.humidity)
 
